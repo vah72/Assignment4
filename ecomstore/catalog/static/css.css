@@ -111,4 +111,9 @@
     float:left; 
     padding:0 10px 10px 0; 
    } 
+
+   /* style for Django error messages */ 
+ul.errorlist{ 
+    background-color:Red;color:White; 
+   } 
    
