@@ -13,5 +13,4 @@ def show_cart(request):
     cart_items = cart.get_cart_items(request) 
     page_title = 'Shopping Cart' 
     cart_subtotal = cart.cart_subtotal(request)
-    return render(request, "cart/cart.html" , {'cart_items' : cart_items, 
-                                               'cart_subtotal' : cart_subtotal, 'page_title' : page_title}) 
+    return render(request, "cart/cart.html" , locals()) 

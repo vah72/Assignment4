@@ -19,9 +19,7 @@ def show_category(request, category_slug):
     page_title = c.name
     meta_keywords = c.meta_keywords
     meta_description = c.meta_description
-    return render(request, 'catalog/category.html', {'c': c, 'products': products,
-                'page_title': page_title, 'meta_keywords': meta_keywords,
-                'meta_description': meta_description})
+    return render(request,'catalog/category.html', locals())
 
 
 def show_product(request, product_slug):
@@ -30,7 +28,6 @@ def show_product(request, product_slug):
     page_title = p.name
     meta_keywords = p.meta_keywords
     meta_description = p.meta_description
-
     # need to evaluate the HTTP method
     if request.method == 'POST': 
         # add to cart…create the bound form 
@@ -52,6 +49,4 @@ def show_product(request, product_slug):
     form.fields['product_slug'].widget.attrs['value'] = product_slug 
     # set the test cookie on our first GET request 
     request.session.set_test_cookie() 
-    return render(request, 'catalog/product.html', {'p':p, 'categories' : categories,
-            'page_title' : page_title, 'meta_keywords' : meta_keywords,
-            'meta_description' : meta_description})
+    return render(request, 'catalog/product.html', locals())
