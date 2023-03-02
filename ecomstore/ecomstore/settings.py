@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'preview',
     'catalog',
     'utils',
 ]
@@ -65,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'utils.context_processors.ecomstore',
             ],
         },
     },
@@ -133,10 +133,10 @@ SITE_NAME = 'Modern Musician'
 META_KEYWORDS = 'Music, instruments, music accessories, musician supplies'
 META_DESCRIPTION = 'Modern Musician is an online supplier of instruments, sheet music, and other accessories for musicians'
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'ecomstore.utils.context_processors.ecomstore',
-)
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     'django.core.context_processors.auth',
+#     'django.core.context_processors.debug',
+#     'django.core.context_processors.i18n',
+#     'django.core.context_processors.media',
+   
+# )
