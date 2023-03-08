@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'catalog',
     'utils',
     'cart',
+    'checkout',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -160,3 +162,23 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 2
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False 
 # Whether the session cookie should be secure (https:// only). 
 SESSION_COOKIE_SECURE = False 
+
+# MERCHANT_TEST_MODE = True
+# MERCHANT_SETTINGS = {
+#     'google_checkout':{
+#         "MERCHANT_ID" : "715051007",
+#         "MERCHANT_KEY" : "a521ca65cd2d1cffd95a8cb6692e0693069ff8cb"
+#     }
+# }
+# GOOGLE_CHECKOUT_MERCHANT_ID = 'BCR2DN4TXL3YXKRG' 
+# GOOGLE_CHECKOUT_MERCHANT_NAME = 'Vanh'
+# GOOGLE_CHECKOUT_URL = 'https://sandbox.google.com/checkout/api/v2/merchantCheckout/Merchant/' + GOOGLE_CHECKOUT_MERCHANT_ID 
+
+#django-paypal-setting
+PAYPAL_RECEIVER_EMAIL = 'hoangvananh7201@gmail.com'
+PAYPAL_TEST = True
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+LOGIN_REDIRECT_URL = '/my_account/' 

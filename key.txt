@@ -1,0 +1,11 @@
+site_key = 6LcTqc0kAAAAAI_eOiKEj42v-incwKfIhNi6-4YX
+secret_key = 6LcTqc0kAAAAAJpNSVHNQmbOKRnwDXt4JT7Cv_zX
+
+API_key = AIzaSyBeAkZm8PH_-mM4ThMumuKzmxgIxWUJ36Q
+
+
+username : sb-zlfp4725206722_api1.business.example.com
+password : EJBKVE8HM7PNSRRK
+signature : AP77O1uyNP0rDfuu.nrS4ws4IWikAjtelzlJVpJGIRVUPP2vv-.An8vH
+Client id : AdE9sYrds9a_h-oiqLfJBWUsq2DRnbOgVtFwZva40phqLSlBEf8FUCll1p-X3shTXHUKNJyWt6jYMfd4
+secret : EFGDufn_2rGQbGuBkR1qURjpspjnhrkdvAojBa5U7AHJ0XTTfJHuGnMEMyA4Z9pUKBnxqCIEin0P0HR-

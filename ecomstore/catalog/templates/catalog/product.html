@@ -1,7 +1,7 @@
 {% extends "catalog.html" %}
 {% block content %}
-    <div class="product_image" >
-        <img src="{{ p.image.url }}" alt="{{ p.name}}" width="200px" height="170px"/>
+    <div >
+        <img src="{{ p.image.url }}" alt="{{ p.name}}" class="product_img" />
     </div>
     <h1>{{ p.name }}</h1>
     Brand: <em>{{ p.brand }}</em>
@@ -15,11 +15,11 @@
     {% endfor %}
     <br /><br />
     {% if p.sale_price %}
-        Was: <del>{{ p.old_price }}VND</del>
+        Was: <del>{{ p.old_price }}USD</del>
         <br />
-        Now: {{ p.price }}VND
+        Now: {{ p.price }}USD
     {% else %}
-        Price: {{ p.price }}VND
+        Price: {{ p.price }}USD
     {% endif %}
     <br /><br />
     <ul class="errorlist">
