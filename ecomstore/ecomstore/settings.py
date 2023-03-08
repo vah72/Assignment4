@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'utils',
     'cart',
     'checkout',
+    'accounts',
     'paypal.standard.ipn',
 ]
 
@@ -182,3 +183,5 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 LOGIN_REDIRECT_URL = '/my_account/' 
+
+AUTH_PROFILE_MODULE = 'accounts.userprofile'

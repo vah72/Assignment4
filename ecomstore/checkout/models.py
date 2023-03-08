@@ -5,7 +5,34 @@ from catalog.models import Product
 import decimal
 from django.urls import reverse
 
-class Order(models.Model):
+
+class BaseOrderInfo(models.Model):
+    # contact info
+    email = models.EmailField(max_length=50)
+    phone = models.CharField(max_length=20)
+
+    # shipping information
+    shipping_name = models.CharField(max_length=50) 
+    shipping_address_1 = models.CharField(max_length=50) 
+    shipping_address_2 = models.CharField(max_length=50, blank=True) 
+    shipping_city = models.CharField(max_length=50) 
+    shipping_state = models.CharField(max_length=2) 
+    shipping_country = models.CharField(max_length=50) 
+    shipping_zip = models.CharField(max_length=10) 
+    
+    #billing information 
+    billing_name = models.CharField(max_length=50) 
+    billing_address_1 = models.CharField(max_length=50) 
+    billing_address_2 = models.CharField(max_length=50, blank=True) 
+    billing_city = models.CharField(max_length=50) 
+    billing_state = models.CharField(max_length=2) 
+    billing_country = models.CharField(max_length=50) 
+    billing_zip = models.CharField(max_length=10) 
+
+    class Meta:
+        abstract = True
+
+class Order(BaseOrderInfo):
     # each individual status
     SUBMITTED = 1
     PROCESSED = 2
@@ -46,7 +73,7 @@ class Order(models.Model):
     billing_country = models.CharField(max_length=50)
     billing_zip = models.CharField(max_length=10)
 
-    def __unicode__(self):
+    def __str__(self):
         return 'Order #' + str(self.id)
 
     @property
@@ -58,7 +85,7 @@ class Order(models.Model):
         return total
     
     def get_absolute_url(self):
-        return reverse("model_detail",(), {"order_id": self.id})
+        return reverse('order_details', args={self.id})
     
 
 
@@ -80,7 +107,7 @@ class OrderItem(models.Model):
     def sku(self):
         return self.product.sku
     
-    def __unicode__(self):
+    def __str__(self):
         return self.product.name + ' (' + self.product.sku + ')'
 
     def get_absolute_url(self):

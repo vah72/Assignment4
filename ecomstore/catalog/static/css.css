@@ -50,11 +50,13 @@
    } 
    #sidebar{ 
     width:200px; 
-    float:left;; 
+    float:left;;
+    height: 500px; 
    } 
    #content{ 
     width:700px; 
     float:left; 
+    height: 500px;
    } 
    #footer{ 
     clear:both; 
@@ -107,14 +109,10 @@
     height:200px; 
    } 
    /* product page styles */ 
-   div.product_image{ 
-    float:left; 
-    padding:0 10px 10px 0; 
-   } 
    .product_img{ 
     float:left; 
-    width: 150px!important ;
-    height: 200px !important;
+    width: 120px !important ;
+    height: 150px !important;
     margin-left: 10px !important;
    } 
 
