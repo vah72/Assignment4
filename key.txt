@@ -1,4 +1,0 @@
-API Login ID : 9g3vFc7XMA
-Transaction key :35X2E4UatpY6f6ku
-key : SIMON
-card : 5105105105105100
