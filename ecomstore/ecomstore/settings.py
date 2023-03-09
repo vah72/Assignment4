@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'accounts',
-    'paypal.standard.ipn',
+    'paypal.standard.ipn'
 ]
 
 MIDDLEWARE = [
@@ -179,9 +179,10 @@ SESSION_COOKIE_SECURE = False
 # GOOGLE_CHECKOUT_URL = 'https://sandbox.google.com/checkout/api/v2/merchantCheckout/Merchant/' + GOOGLE_CHECKOUT_MERCHANT_ID 
 
 #django-paypal-setting
-PAYPAL_RECEIVER_EMAIL = 'hoangvananh7201@gmail.com'
-PAYPAL_TEST = True
-SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+AUTHNET_POST_URL = 'test.authorize.net' 
+AUTHNET_POST_PATH = '/gateway/transact.dll' 
+AUTHNET_LOGIN = '9g3vFc7XMA'
+AUTHNET_KEY = '35X2E4UatpY6f6ku'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

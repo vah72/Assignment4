@@ -1,41 +1,57 @@
-{% comment %} {% extends 'base.html' %}
-
-{% block content %}
-<div id="paypal-button-container"></div>
-
-              <!-- Include the PayPal JavaScript SDK -->
-              <script
-                  src="https://www.paypal.com/sdk/js?client-id=AdE9sYrds9a_h-oiqLfJBWUsq2DRnbOgVtFwZva40phqLSlBEf8FUCll1p-X3shTXHUKNJyWt6jYMfd4&currency=USD">
-              </script>
-
-              <script>
-                  // Render the PayPal button into #paypal-button-container
-                  paypal.Buttons({
-
-                      // Set up the transaction
-                      createOrder: function (data, actions) {
-                          return actions.order.create({
-                              purchase_units: [{
-                                  amount: {
-                                      value: '50'
-                                  }
-                              }]
-                          });
-                      },
-
-                      // Finalize the transaction
-                      onApprove: function (data, actions) {
-                          return actions.order.capture().then(function (details) {
-                              // Show a success message to the buyer
-                              alert('Transaction completed by ' + details.payer.name
-                                  .given_name + '!');
-                          });
-                      }
-
-
-                  }).render('#paypal-button-container');
-              </script>
-
-          </div>
-{% endblock %}  {% endcomment %}
-<h1>Check out</h1>
+{% extends "catalog.html" %} 
+{% load checkout_tags %} 
+{% block content %} 
+<h1>Checkout</h1>{% if error_message %} 
+ <ul class="errorlist"> 
+ <li>{{ error_message }}</li> 
+ </ul> 
+{% endif %} 
+<form action="." method="post"> 
+ <fieldset class="checkout"> 
+ <legend>Contact Info</legend> 
+ <table> 
+ {% form_table_row form.email %} 
+ {% form_table_row form.phone %} 
+ </table> 
+ </fieldset>
+ <fieldset class="checkout"> 
+    <legend>Shipping Info</legend> 
+    <table> 
+    {% form_table_row form.shipping_name %} 
+    {% form_table_row form.shipping_address_1 %} 
+    {% form_table_row form.shipping_address_2 %} 
+    {% form_table_row form.shipping_city %} 
+    {% form_table_row form.shipping_state %} 
+    {% form_table_row form.shipping_zip %} 
+    {% form_table_row form.shipping_country %} 
+    </table> 
+    </fieldset> 
+    <fieldset class="checkout"> 
+    <legend>Billing Info</legend> 
+    <table> 
+    {% form_table_row form.billing_name %} 
+    {% form_table_row form.billing_address_1 %} 
+    {% form_table_row form.billing_address_2 %} 
+    {% form_table_row form.billing_city %} 
+    {% form_table_row form.billing_state %} 
+    {% form_table_row form.billing_zip %} 
+    {% form_table_row form.billing_country %} 
+    </table> 
+    </fieldset> 
+    <fieldset class="checkout"> 
+    <legend>Credit Card Info</legend> 
+    <table> 
+    {% form_table_row form.credit_card_number %} 
+    {% form_table_row form.credit_card_type %} 
+    {% form_table_row form.credit_card_expire_month %} 
+    {% form_table_row form.credit_card_expire_year %} 
+    {% form_table_row form.credit_card_cvv %} 
+    </table> 
+    </fieldset> 
+    <table> 
+    <tr> 
+    <th colspan="2"><input type="submit" value="Place Order" class="submit" /></th> 
+    </tr> 
+    </table> 
+   </form> 
+   {% endblock %}
