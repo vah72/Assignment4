@@ -50,7 +50,7 @@ def order_details(request, order_id):
     order_items = OrderItem.objects.filter(order=order)
     return render(request, 'registration/order_details.html', locals())
 
-
+@csrf_exempt
 def order_info(request):
     if request.method == 'POST':
         postdata = request.POST.copy() 
@@ -64,8 +64,6 @@ def order_info(request):
         form = UserProfileForm(instance=user_profile) 
     page_title = 'Edit Order Information' 
 
-    return render(request, 'registration/order_info/html', locals())
+    return render(request, 'registration/order_info.html', locals())
 
-def login(request):
-    return
-    
+

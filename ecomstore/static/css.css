@@ -105,15 +105,14 @@
    div.product_thumbnail{ 
     text-align:center; 
     float:left; 
-    width:150px; 
-    height:200px; 
+    width:150px !important; 
+    height:150px !important; 
    } 
    /* product page styles */ 
    .product_img{ 
     float:left; 
     width: 120px !important ;
     height: 150px !important;
-    margin-left: 10px !important;
    } 
 
    /* style for Django error messages */ 

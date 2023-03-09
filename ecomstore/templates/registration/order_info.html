@@ -9,11 +9,13 @@
 {% endif %} 
 <form  method="post"> 
  <table> 
+{% csrf_token %}
  {{ form.as_table }} 
  </table> 
  <table> 
  <tr> 
  <th colspan="2"> 
+{% csrf_token %}
  <input type="submit" value="Save Information" class="submit" /> 
  </th> 
  </tr> 
