@@ -7,9 +7,13 @@ from .forms import CheckoutForm
 from .models import Order, OrderItem
 from . import checkout
 from cart import cart
+from accounts import profile
 
 from django.views.decorators.csrf import csrf_exempt
 
+from django.contrib.auth.decorators import login_required
+
+@login_required
 @csrf_exempt
 def show_checkout(request):
     if cart.is_empty(request):
@@ -29,7 +33,11 @@ def show_checkout(request):
         else:
             error_message = 'Correct the errors below'
     else:
-        form = CheckoutForm()
+        if request.user.is_authenticated:
+            user_profile = profile.retrieve(request)
+            form = CheckoutForm(instance=user_profile)
+        else :
+            form = CheckoutForm()
     page_title = 'Checkout'
     return render(request,'checkout/checkout.html' , locals())
 

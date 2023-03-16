@@ -50,6 +50,7 @@ def order_details(request, order_id):
     order_items = OrderItem.objects.filter(order=order)
     return render(request, 'registration/order_details.html', locals())
 
+@login_required
 @csrf_exempt
 def order_info(request):
     if request.method == 'POST':
